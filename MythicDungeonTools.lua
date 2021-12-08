@@ -3964,7 +3964,7 @@ function MDT:UpdatePullButtonNPCData(idx)
 	end
 	frame.newPullButtons[idx]:SetNPCData(enemyTable)
 
-    --if db.MDI.enabled and preset.mdi.beguiling == 13 then end
+    if db.MDI.enabled and preset.mdi.beguiling == 13 then end
     --display reaping icon
     local pullForces = MDT:CountForces(idx,false)
     local totalForcesMax = MDT:IsCurrentPresetTeeming() and MDT.dungeonTotalCount[db.currentDungeonIdx].teeming or MDT.dungeonTotalCount[db.currentDungeonIdx].normal
