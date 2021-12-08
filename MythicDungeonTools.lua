@@ -219,18 +219,18 @@ MDT.scaleMultiplier = {}
 --https://www.wowhead.com/affixes
 --lvl 4 affix, lvl 7 affix, tyrannical/fortified, seasonal affix
 local affixWeeks = {
-    [1] =  {11,124,10,128}, --bursting storming fortified tormented
-    [2] =  {6,3,9,128}, --raging volcanic tyrannical tormented
-    [3] =  {122,12,10,128}, -- inspiring grievous fortified tormented
-    [4] =  {123,4,9,128}, -- spiteful necrotic tyrannical tormented
-    [5] =  {7,14,10,128}, -- bolstering quaking fortified tormented
-    [6] =  {8,124,9,128}, --sanguine storming tyrannical tormented
-    [7] =  {6,13,10,128}, --raging explosive fortified tormented
-    [8] =  {11,3,9,128}, --bursting volcanic tyrannical tormented
-    [9] =  {123,12,10,128}, --spiteful grievous fortified tormented
-    [10] = {122,14,9,128},  --inspiring quaking tyrannical tormented
-    [11] = {8,4,10,128},  --sanguine necrotic fortified tormented
-    [12] = {7,13,9,128},  --bolstering explosive tyrannical tormented
+    [1] =  {[1]=11,[2]=3,[3]=10,[4]=121}, -->>Bursting, Volcanic, Fortified
+    [2] =  {[1]=7,[2]=124,[3]=9,[4]=121}, -->>Bolstering, Storming, Tyrannical
+    [3] =  {[1]=123,[2]=12,[3]=10,[4]=121}, -->>Spiteful, Grievous, Fortified
+    [4] =  {[1]=122,[2]=4,[3]=9,[4]=121}, -->>Inspiring, Necrotic, Tyrannical
+    [5] =  {[1]=8,[2]=14,[3]=10,[4]=121}, -->>Sanguine, Quaking, Fortified
+    [6] =  {[1]=6,[2]=13,[3]=9,[4]=121}, -->>Raging, Explosive, Tyrannical
+    [7] =  {[1]=123,[2]=3,[3]=10,[4]=121}, -->>Spiteful, Volcanic, Fortified
+    [8] =  {[1]=7,[2]=4,[3]=9,[4]=121},  -->>Bolstering, Necrotic, Tyrannical
+    [9] =  {[1]=122,[2]=124,[3]=10,[4]=121},   -->>Inspiring, Storming, Fortified
+    [10] = {[1]=11,[2]=13,[3]=9,[4]=121},  -->>Bursting, Explosive, Tyrannical
+    [11] = {[1]=8,[2]=12,[3]=10,[4]=121},      -->>Sanguine, Grievous, Fortified
+    [12] = {[1]=6,[2]=14,[3]=9,[4]=121},   -->>Raging, Quaking, Tyrannical
 }
 
 local dungeonList = {
@@ -3964,7 +3964,7 @@ function MDT:UpdatePullButtonNPCData(idx)
 	end
 	frame.newPullButtons[idx]:SetNPCData(enemyTable)
 
-    if db.MDI.enabled and preset.mdi.beguiling == 13 then end
+    --if db.MDI.enabled and preset.mdi.beguiling == 13 then end
     --display reaping icon
     local pullForces = MDT:CountForces(idx,false)
     local totalForcesMax = MDT:IsCurrentPresetTeeming() and MDT.dungeonTotalCount[db.currentDungeonIdx].teeming or MDT.dungeonTotalCount[db.currentDungeonIdx].normal
